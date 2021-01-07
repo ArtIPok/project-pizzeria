@@ -67,7 +67,7 @@
 
       thisProduct.initOrderForm();
 
-      //thisProduct.processOrder();
+      thisProduct.processOrder();
 
       console.log('new Product: ', thisProduct);
     }
@@ -104,11 +104,11 @@
       const thisProduct = this;
 
       // find the clickable trigger (the elelment thet should react to clicking)
-      const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
-      // lub można bez bo wyzej jest już zdefiniowane thisProduct.accordionTrigger
+      // const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+      // because above is defined thisProduct.accordionTrigger
 
       // START: add event listener to clickable trigger on event click
-      clickableTrigger.addEventListener('click', function(event){
+      thisProduct.accordionTrigger.addEventListener('click', function(event){
 
         // prevent default action for event
         event.preventDefault();
@@ -149,7 +149,7 @@
       console.log('initOrderForm: ');
     }
 
-    /* processOrder(){
+    processOrder(){
       const thisProduct = this;
 
       // convert form to object structure e.g.
@@ -172,28 +172,26 @@
           console.log(optionId, option);
 
           // check if there is param with a name of paramId in formData and if it includes optionId
-          if(formData[paramId] && formData[paramId].includes(optionId)){
+          if(formData[paramId] && formData[paramId].includes(optionId)) {
             // check if the option is not default
-            /* if(){
+            if(optionId != 'default') {
               // add option price to price variable
-
+              price == price + thisProduct.priceElem;
             }
           } else {
             // check if the option is default
-            if(){
-              // reduce price variable
+            if(optionId = 'default') {
+              // reduce price variable */
+              price == price - thisProduct.priceElem;
             }
           }
         }
-      }
-
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
       // console.log('processOrder: ');
-    } */
-
+    }
+    }
   }
-
   const app = {
     initMenu: function(){
       const thisApp = this;
