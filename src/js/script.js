@@ -63,11 +63,11 @@
 
       thisProduct.getElements();
 
-      //thisProduct.initAccordion();
+      thisProduct.initAccordion();
 
       thisProduct.initOrderForm();
 
-      thisProduct.processOrder();
+      //thisProduct.processOrder();
 
       console.log('new Product: ', thisProduct);
     }
@@ -100,25 +100,32 @@
       console.log('priceElem:', thisProduct.priceElem);
     }
 
-  /*  initAccordion(){
+    initAccordion(){
       const thisProduct = this;
 
       // find the clickable trigger (the elelment thet should react to clicking)
-      const clickableTrigger = ;
+      const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+      // lub można bez bo wyzej jest już zdefiniowane thisProduct.accordionTrigger
 
       // START: add event listener to clickable trigger on event click
-      thisProduct.accordionTrigger.addEventListener('click', function(event){
+      clickableTrigger.addEventListener('click', function(event){
 
         // prevent default action for event
+        event.preventDefault();
 
         // find active product (product that has active class)
-
+        const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
 
         // if there is active product and it's not thisProduct.element, remove class active from it
-
+        if(activeProducts.length){
+          for(let activeProduct of activeProducts){
+            activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
+          }
+        }
         // toggle active class on thisProduct.element
+        thisProduct.element.classList.add(classNames.menuProduct.wrapperActive);
       });
-    } */
+    }
 
     initOrderForm(){
       const thisProduct = this;
@@ -142,7 +149,7 @@
       console.log('initOrderForm: ');
     }
 
-    processOrder(){
+    /* processOrder(){
       const thisProduct = this;
 
       // convert form to object structure e.g.
@@ -167,7 +174,7 @@
           // check if there is param with a name of paramId in formData and if it includes optionId
           if(formData[paramId] && formData[paramId].includes(optionId)){
             // check if the option is not default
-            if(){
+            /* if(){
               // add option price to price variable
 
             }
@@ -183,7 +190,7 @@
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
       // console.log('processOrder: ');
-    }
+    } */
 
   }
 
