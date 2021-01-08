@@ -179,22 +179,21 @@
             // Yes! We've found it
             const showImage = classNames.menuProduct.imageVisible;
 
-            console.log('optionImage: ', showImage);
           }
 
           // check if there is param with a name of paramId in formData and if it includes optionId
           if(formData[paramId] && formData[paramId].includes(optionId)) {
 
             // check if the option is not default
-            if(option != 'default') {
-              // console.log('option: ', option);
+            if(option != 'default' && param.type != null) {
+              console.log('paramId.type: ', param.type);
               // add option price to price variable
               price = price + option.price;
 
             }
           } else {
             // check if the option is default
-            if(option.default == 'true') {
+            if(option == 'default' && param.type == null) {
               // reduce price variable */
               price = price - option.price;
             }
@@ -202,7 +201,6 @@
         }
         // update calculated price in the HTML
         thisProduct.priceElem.innerHTML = price;
-        // console.log('processOrder: ');
       }
     }
   }
