@@ -165,6 +165,7 @@
         // determine param value, e.g. paramId = 'toppings', param = {label: 'Toppings', type: 'checkboxes'...}
         const param = thisProduct.data.params[paramId];
         console.log(paramId, param);
+        console.log('param.type: ', param.type);
 
         // for every option in this category
         for(let optionId in param.options){
@@ -185,15 +186,14 @@
           if(formData[paramId] && formData[paramId].includes(optionId)) {
 
             // check if the option is not default
-            if(option != 'default' && param.type != null) {
-              console.log('paramId.type: ', param.type);
+            if(option.default == false && param.type != null) {
+              console.log('option.default: ', param.type);
               // add option price to price variable
               price = price + option.price;
-
             }
           } else {
             // check if the option is default
-            if(option == 'default' && param.type == null) {
+            if(option.default) {
               // reduce price variable */
               price = price - option.price;
             }
