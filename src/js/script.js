@@ -96,6 +96,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
 
       console.log('priceElem:', thisProduct.priceElem);
     }
@@ -171,25 +172,32 @@
           const option = param.options[optionId];
           console.log(optionId, option);
 
+          // find image with class .paramId-optionId
+          //const optionImage = thisProduct.imageWrapper.querySelector(paramId);
+
           // check if there is param with a name of paramId in formData and if it includes optionId
           if(formData[paramId] && formData[paramId].includes(optionId)) {
+
             // check if the option is not default
-            if(optionId != 'default') {
+            if(option.default != 'true') {
+
               // add option price to price variable
-              price == price + thisProduct.priceElem;
+              price == price + option.price;
+
             }
           } else {
             // check if the option is default
-            if(optionId = 'default') {
+            if(option.default == 'true') {
               // reduce price variable */
-              price == price - thisProduct.priceElem;
+              price == price - option.price;
+              console.log('price: ', price);
             }
           }
         }
-      // update calculated price in the HTML
-      thisProduct.priceElem.innerHTML = price;
-      // console.log('processOrder: ');
-    }
+        // update calculated price in the HTML
+        thisProduct.priceElem.innerHTML = price;
+        // console.log('processOrder: ');
+      }
     }
   }
   const app = {
