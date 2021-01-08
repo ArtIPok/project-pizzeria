@@ -98,7 +98,6 @@
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
 
-      console.log('priceElem:', thisProduct.priceElem);
     }
 
     initAccordion(){
@@ -165,7 +164,6 @@
         // determine param value, e.g. paramId = 'toppings', param = {label: 'Toppings', type: 'checkboxes'...}
         const param = thisProduct.data.params[paramId];
         console.log(paramId, param);
-        console.log('param.type: ', param.type);
 
         // for every option in this category
         for(let optionId in param.options){
@@ -179,12 +177,14 @@
 
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
-          if(optionSelected) {
+          if(optionImage) {
             // Yes! We've found it
+            if(optionSelected){
             //optionImage.classList.add(classNames.menuProduct.imageVisible);
 
-          } else {
+            } else {
             //optionImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
           }
 
           // check if there is param with a name of paramId in formData and if it includes optionId
