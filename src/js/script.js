@@ -174,20 +174,25 @@
           console.log(optionId, option);
 
           // find image with class .paramId-optionId
-          const optionImage = thisProduct.imageWrapper.querySelector(paramId);
+          const optionImage = thisProduct.imageWrapper.querySelector(paramId-optionId);
+          console.log('optionImage: ', optionImage);
 
-          if(optionImage) {
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+
+          if(optionSelected) {
             // Yes! We've found it
-            const showImage = classNames.menuProduct.imageVisible;
+            //optionImage.classList.add(classNames.menuProduct.imageVisible);
 
+          } else {
+            //optionImage.classList.remove(classNames.menuProduct.imageVisible);
           }
 
           // check if there is param with a name of paramId in formData and if it includes optionId
-          if(formData[paramId] && formData[paramId].includes(optionId)) {
+          if(optionSelected) {
 
             // check if the option is not default
-            if(option.default == false && param.type != null) {
-              console.log('option.default: ', param.type);
+            if(option.default == null) {
+
               // add option price to price variable
               price = price + option.price;
             }
@@ -198,6 +203,7 @@
               price = price - option.price;
             }
           }
+
         }
         // update calculated price in the HTML
         thisProduct.priceElem.innerHTML = price;
