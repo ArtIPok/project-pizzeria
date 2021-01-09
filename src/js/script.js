@@ -67,9 +67,11 @@
 
       thisProduct.initOrderForm();
 
+      thisProduct.initAmountWidget();
+
       thisProduct.processOrder();
 
-      console.log('new Product: ', thisProduct);
+      // console.log('new Product: ', thisProduct);
     }
 
     renderInMenu(){
@@ -97,6 +99,7 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
+      thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
 
     }
 
@@ -146,7 +149,7 @@
         thisProduct.processOrder();
       });
 
-      console.log('initOrderForm: ');
+    //  console.log('initOrderForm: ');
     }
 
     processOrder(){
@@ -154,7 +157,7 @@
 
       // convert form to object structure e.g.
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData: ', formData);
+      // console.log('formData: ', formData);
 
       // set price to default price
       let price = thisProduct.data.price;
@@ -163,17 +166,17 @@
       for(let paramId in thisProduct.data.params){
         // determine param value, e.g. paramId = 'toppings', param = {label: 'Toppings', type: 'checkboxes'...}
         const param = thisProduct.data.params[paramId];
-        console.log(paramId, param);
+        // console.log(paramId, param);
 
         // for every option in this category
         for(let optionId in param.options){
           // determine option value, e.g. optionId = 'olives', option = {label: 'Olives', price: 2, default: true}
           const option = param.options[optionId];
-          console.log(optionId, option);
+          // console.log(optionId, option);
 
           // find image with class .paramId-optionId
           const optionImage = thisProduct.imageWrapper.querySelector(paramId-optionId);
-          console.log('optionImage: ', optionImage);
+          // console.log('optionImage: ', optionImage);
 
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
@@ -209,12 +212,68 @@
         thisProduct.priceElem.innerHTML = price;
       }
     }
+
+    initAmountWidget(){
+      const thisProduct = this;
+
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+
+    }
+
   }
+
+  class AmountWidget{
+    constructor(element){
+      const thisWidget = this;
+
+      thisWidget.getElements(element);
+
+      thisWidget.setValue(thisWidget.input.value);
+
+      console.log('AmountWidget: ', AmountWidget);
+      console.log('constructor arguments: ', element);
+    }
+
+    getElements(element){
+      const thisWidget = this;
+
+      thisWidget.element = element;
+      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets. amount.linkIncrease);
+    }
+
+    setValue(value){
+      const thisWidget = this;
+
+      const newValue = parseInt(value);
+
+      // TODO: Add validation
+      if(newValue !== thisWidget.value && !isNaN(newValue)){
+        thisWidget.value = newValue;
+      }
+      thisWidget.input.value = thisWidget.value;
+    }
+
+    initActions(){
+      const thisWidget = this;
+
+      thisWidget.input.addEventListener('change', setValue(value));
+
+      thisWidget.linkDecrease.addEventListener('click', setValue(thisWidget.value --));
+
+      thisWidget.linkIncrease.addEventListener('click', setValue(thisWidget.value ++));
+      // thisWidget.initActions();
+
+    }
+
+  }
+
   const app = {
     initMenu: function(){
       const thisApp = this;
 
-      console.log('thisApp.data: ', thisApp.data);
+    //   console.log('thisApp.data: ', thisApp.data);
 
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
@@ -229,11 +288,11 @@
 
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
-      console.log('settings:', settings);
-      console.log('templates:', templates);
+      // console.log('*** App starting ***');
+      // console.log('thisApp:', thisApp);
+      // console.log('classNames:', classNames);
+      // console.log('settings:', settings);
+      // console.log('templates:', templates);
 
       thisApp.initData();
 
