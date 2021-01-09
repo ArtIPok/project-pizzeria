@@ -175,18 +175,18 @@
           // console.log(optionId, option);
 
           // find image with class .paramId-optionId
-          const optionImage = thisProduct.imageWrapper.querySelector(paramId-optionId);
-          // console.log('optionImage: ', optionImage);
+          const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+          console.log('optionImage: ', optionImage);
 
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
           if(optionImage) {
             // Yes! We've found it
             if(optionSelected){
-            //optionImage.classList.add(classNames.menuProduct.imageVisible);
+            optionImage.classList.add(classNames.menuProduct.imageVisible);
 
             } else {
-            //optionImage.classList.remove(classNames.menuProduct.imageVisible);
+            optionImage.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
 
@@ -194,7 +194,7 @@
           if(optionSelected) {
 
             // check if the option is not default
-            if(option.default == null) {
+            if(!option.default) {
 
               // add option price to price variable
               price = price + option.price;
@@ -209,6 +209,8 @@
 
         }
         // update calculated price in the HTML
+        price *= thisProduct.amountWidget.value;
+
         thisProduct.priceElem.innerHTML = price;
       }
     }
@@ -218,7 +220,10 @@
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
 
+      thisProduct.amountWidgetElem.addEventListener('updated', thisProduct.processOrder());
+
     }
+
 
   }
 
@@ -251,8 +256,12 @@
       // TODO: Add validation
       if(newValue !== thisWidget.value && !isNaN(newValue)){
         thisWidget.value = newValue;
+
       }
       thisWidget.input.value = thisWidget.value;
+
+      thisWidget.announce();
+
     }
 
     initActions(){
@@ -265,6 +274,13 @@
       thisWidget.linkIncrease.addEventListener('click', setValue(thisWidget.value ++));
       // thisWidget.initActions();
 
+    }
+
+    announce(){
+      const thisWidget = this;
+
+      const event = new Event('updated');
+      thisWidget.element.dispatchEvent(event);
     }
 
   }
