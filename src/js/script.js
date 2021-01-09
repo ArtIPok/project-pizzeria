@@ -176,7 +176,7 @@
 
           // find image with class .paramId-optionId
           const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
-          console.log('optionImage: ', optionImage);
+          // console.log('optionImage: ', optionImage);
 
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
@@ -235,6 +235,8 @@
 
       thisWidget.setValue(thisWidget.input.value);
 
+      thisWidget.initActions();
+
       console.log('AmountWidget: ', AmountWidget);
       console.log('constructor arguments: ', element);
     }
@@ -254,25 +256,25 @@
       const newValue = parseInt(value);
 
       // TODO: Add validation
-      if(newValue !== thisWidget.value && !isNaN(newValue)){
+      if(newValue !== thisWidget.value && !isNaN(newValue)) {
         thisWidget.value = newValue;
+
+        thisWidget.announce();
 
       }
       thisWidget.input.value = thisWidget.value;
 
-      thisWidget.announce();
-
     }
+
 
     initActions(){
       const thisWidget = this;
 
       thisWidget.input.addEventListener('change', setValue(value));
 
-      thisWidget.linkDecrease.addEventListener('click', setValue(thisWidget.value --));
+      thisWidget.linkDecrease.addEventListener('click', setValue(thisWidget.value - 1));
 
-      thisWidget.linkIncrease.addEventListener('click', setValue(thisWidget.value ++));
-      // thisWidget.initActions();
+      thisWidget.linkIncrease.addEventListener('click', setValue(thisWidget.value + 1));
 
     }
 
