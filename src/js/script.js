@@ -206,11 +206,12 @@
               price = price - option.price;
             }
           }
-
         }
-        // update calculated price in the HTML
-        // price *= thisProduct.amountWidget.value;
+        // multiplay price by amount
+        price *= thisProduct.amountWidget.value;
+        console.log(price);
 
+        // update calculated price in the HTML
         thisProduct.priceElem.innerHTML = price;
       }
     }
@@ -220,7 +221,9 @@
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
 
-      thisProduct.amountWidgetElem.addEventListener('updated', thisProduct.processOrder());
+      thisProduct.amountWidgetElem.addEventListener('updated', function(){
+        thisProduct.processOrder()
+      })
 
     }
 
@@ -232,11 +235,10 @@
       const thisWidget = this;
 
       thisWidget.getElements(element);
-      thisWidget.initActions();
-
 
       thisWidget.setValue(thisWidget.input.value);
 
+      thisWidget.initActions();
 
       // console.log('AmountWidget: ', AmountWidget);
       // console.log('constructor arguments: ', element);
@@ -249,6 +251,7 @@
       thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
       thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets. amount.linkIncrease);
+      thisWidget.value = settings.amountWidget.defaultValue;
     }
 
     setValue(value){
@@ -260,9 +263,7 @@
       if(thisWidget.value !== newValue && !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
         thisWidget.value = newValue;
 
-        console.log(settings.amountWidget.defaultMin, settings.amountWidget.defaultMax, newValue);
-        // && settings.amountWidget.defaultMin << thisWidget.input.value && settings.amountWidget.defaultMax >> newValue
-        //thisWidget.announce();
+        thisWidget.announce();
       }
       thisWidget.input.value = thisWidget.value;
     }
