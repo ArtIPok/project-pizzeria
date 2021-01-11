@@ -270,6 +270,8 @@
       const thisProduct = this;
 
       app.cart.add(thisProduct.prepareCartProduct());
+
+
     }
 
     prepareCartProduct(){
@@ -402,6 +404,8 @@
 
       thisCart.initActions();
 
+      thisCart.add();
+
       console.log('new cart: ', thisCart);
     }
 
@@ -413,6 +417,8 @@
       thisCart.dom.wrapper = element;
 
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+
+      thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
     }
 
     initActions(){
@@ -424,7 +430,19 @@
     }
 
     add(menuProduct){
-      // const thisCart = this;
+      const thisCart = this;
+
+      // generate HTML based on template
+      const generatedHTML = templates.menuProduct(thisCart);
+
+      // create element using utils.createElementFromHTML
+      thisCart.element = utils.createDOMFromHTML(generatedHTML);
+
+      // find menu container
+      const menuContainer = document.querySelector(select.containerOf.menu);
+
+      // add element to menu
+      menuContainer.appendChild(thisCart.dom.productList);
 
       console.log('adding product: ', menuProduct);
     }
