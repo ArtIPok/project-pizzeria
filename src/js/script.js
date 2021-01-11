@@ -281,13 +281,9 @@
         name: thisProduct.name,
         amount: thisProduct.amount,
         priceSingle: thisProduct.priceSingle,
-        price: {
-          function(priceSingle, amount){
-            return priceSingle * amount;
-          }
-        },
+        price: {},
         params: {},
-      }
+      };
       return;
     }
 
@@ -382,8 +378,9 @@
 
     initActions(){
       const thisCart = this;
+
       thisCart.dom.toggleTrigger.addEventListener('click', function(){
-        classNames.cart.wrapperActive.toggleTrigger(thisCart.dom.wrapper);
+        thisCart.dom.wrapper.classList.toggle('active');
       });
     }
 
