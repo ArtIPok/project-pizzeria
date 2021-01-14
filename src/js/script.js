@@ -38,8 +38,9 @@
       productList: '.cart__order-summary',
       toggleTrigger: '.cart__summary',
       totalNumber: `.cart__total-number`,
-      totalPrice: '.cart__total-price strong, .cart__order-total .cart__order-price-sum strong',
-      subtotalPrice: '.cart__order-subtotal .cart__order-price-sum strong',
+      totalPrice: '.cart__total-price strong, .cart__order-total',
+      totalPrice1: '.cart__order-price-sum strong',
+      subTotalPrice: '.cart__order-subtotal .cart__order-price-sum strong',
       deliveryFee: '.cart__order-delivery .cart__order-price-sum strong',
       form: '.cart__order',
       formSubmit: '.cart__order [type="submit"]',
@@ -418,13 +419,16 @@
 
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
 
-      //thisCart.dom.deliveryFee = element.querySelector(settings.cart.defaultDeliveryFee);
+      thisCart.dom.deliveryFee = element.querySelector(select.cart.deliveryFee);
 
-      thisCart.dom.subTotalPrice = element.subTotalPrice;
+      thisCart.dom.subTotalPrice = element.querySelector(select.cart.subTotalPrice);
 
-      thisCart.dom.totalPrice = element.querySelector(select.cartProduct.price);
-console.log('totalPrice: ', thisCart.dom.totalPrice);
-      thisCart.dom.totalNumber = element.totalNumber;
+      thisCart.dom.totalPrice = element.querySelector(select.cart.totalPrice);
+
+      thisCart.dom.totalPrice1 = element.querySelector(select.cart.totalPrice1);
+
+      thisCart.dom.totalNumber = element.querySelector(select.cart.totalNumber);
+
 
     }
 
@@ -480,9 +484,18 @@ console.log('totalPrice: ', thisCart.dom.totalPrice);
         thisCart.totalPrice = 0;
       }
 
-      //thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
+      thisCart.dom.totalNumber = totalNumber;
 
-      console.log('stale: ', totalNumber, thisCart.totalPrice, subTotalPrice);
+      thisCart.dom.deliveryFee.innerHTML = deliveryFee;
+
+      thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
+
+      thisCart.dom.totalPrice1.innerHTML = thisCart.totalPrice;
+
+      thisCart.dom.subTotalPrice.innerHTML = subTotalPrice;
+
+      console.log('totalPrice1: ', thisCart.dom.totalPrice1);
+
     }
   }
 
