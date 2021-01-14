@@ -523,7 +523,7 @@
 
       thisCartProduct.amountWidgetElem.addEventListener('update', function(){
 
-      })
+      });
     }
   }
 
