@@ -562,7 +562,9 @@
 
       const indexOfRemovedProduct = thisCart.products.indexOf(event);
 
-      const removedProduct = thisCart.products.splice(indexOfRemovedProduct, 1);
+      //const removedProduct = thisCart.products.splice(indexOfRemovedProduct, 1);
+
+      thisCart.products.splice(indexOfRemovedProduct, 1);
 
       thisCartProduct.dom.wrapper.remove();
 
@@ -651,9 +653,9 @@
     }
 
     getData(){
-      const thisCartProduct = this;
+      //const thisCartProduct = this;
 
-      const loadProduct = {
+    /*  const loadProduct = {
         id: thisCartProduct.id,
         name: thisCartProduct.name,
         amount: thisCartProduct.amount,
@@ -662,7 +664,7 @@
         params: {},
       };
 
-      console.log('name: ', thisCartProduct.name);
+      console.log('name: ', thisCartProduct.name);*/
     }
 
   }
