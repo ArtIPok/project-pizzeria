@@ -541,6 +541,8 @@
 
       } else {
         thisCart.totalPrice = 0;
+        thisCart.totalPriceSum = 0;
+        thisCart.deliveryFee = 0;
       }
 
       thisCart.dom.totalNumber = thisCart.totalNumber;
@@ -636,7 +638,6 @@
 
       thisCartProduct.dom.wrapper.dispatchEvent(event);
 
-      app.cart.update();
     }
 
     initActions(){
