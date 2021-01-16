@@ -396,7 +396,7 @@
     announce(){
       const thisWidget = this;
 
-      const event = new Event('updated');
+      const event = new CustomEvent('updated', {bubbles: true});
       thisWidget.element.dispatchEvent(event);
     }
 
@@ -458,6 +458,10 @@
       thisCart.dom.form.addEventListener('submit', function(){
         event.preventDefault();
         thisCart.sendOrder();
+      });
+
+      thisCart.dom.productList.addEventListener('updated', function(){
+        thisCart.update();
       });
 
     }
@@ -553,19 +557,18 @@
 
     }
 
-  /*  remove(thisCartProduct){
+    remove(thisCartProduct){
       const thisCart = this;
 
-      const indexOfRemovedProduct = thisCart.products.indexOf();
+      const indexOfRemovedProduct = thisCart.products.indexOf(event);
 
       const removedProduct = thisCart.products.splice(indexOfRemovedProduct, 1);
 
-      const removeDomProduct = thisCart.dom.productList.querySelector(removedProduct);
-      removeDomProduct.remove();
+      thisCartProduct.dom.wrapper.remove();
 
       app.cart.update();
 
-    } */
+    }
   }
 
   class CartProduct {
@@ -619,7 +622,7 @@
         thisCartProduct.price = thisCartProduct.amount * thisCartProduct.priceSingle;
         thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
 
-        app.cart.update();
+        //app.cart.update();
       });
     }
 
