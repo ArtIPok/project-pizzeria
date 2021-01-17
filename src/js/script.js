@@ -477,7 +477,7 @@
         totalPrice: thisCart.totalPrice,
         subTotalPrice: thisCart.subTotalPrice,
         deliveryFee: thisCart.deliveryFee,
-        products: {},
+        products: [],
       };
 
       console.log('payLoad: ', payLoad);
