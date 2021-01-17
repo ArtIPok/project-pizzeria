@@ -477,7 +477,7 @@
         totalPrice: thisCart.totalPrice,
         subTotalPrice: thisCart.subTotalPrice,
         deliveryFee: thisCart.deliveryFee,
-        products: thisCart.getData(),
+        products: {},
       };
 
       console.log('payLoad: ', payLoad);
@@ -653,18 +653,19 @@
     }
 
     getData(){
-      //const thisCartProduct = this;
+      const thisCartProduct = this;
 
-    /*  const loadProduct = {
+      const loadProduct = {
         id: thisCartProduct.id,
         name: thisCartProduct.name,
         amount: thisCartProduct.amount,
         price: thisCartProduct.price,
         priceSingle: thisCartProduct.priceSingle,
-        params: {},
+        params: thisCartProduct.params,
       };
 
-      console.log('name: ', thisCartProduct.name);*/
+      //console.log('name: ', thisCartProduct.name);
+      return(loadProduct);
     }
 
   }
