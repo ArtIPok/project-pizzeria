@@ -1,7 +1,7 @@
-import {settings, select, templates} from './settings.js';
-import CartProduct from './components/CartProduct.js';
-import utils from './utils.js';
-import app from './app.js';
+import {settings, select, templates} from '../settings.js';
+import CartProduct from './CartProduct.js';
+import {utils} from '../utils.js';
+import {app} from '../app.js';
 
 class Cart {
   constructor(element) {
@@ -142,8 +142,8 @@ class Cart {
 
     } else {
       thisCart.totalPrice = 0;
-      thisCart.totalPriceSum = 0;
-      thisCart.deliveryFee = 0;
+      //thisCart.totalPriceSum = 0;
+      //thisCart.deliveryFee = 0;
     }
 
     thisCart.dom.totalNumber = thisCart.totalNumber;
