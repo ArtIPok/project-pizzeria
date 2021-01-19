@@ -36,7 +36,7 @@ export const app = {
 
         // change url hash
         window.location.hash = '#/' + id;
-      })
+      });
     }
   },
 
