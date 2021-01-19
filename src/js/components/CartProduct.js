@@ -22,7 +22,6 @@ class CartProduct {
     thisCartProduct.initActions();
 
     console.log('thisCartProduct: ', thisCartProduct);
-    console.log('dane: ', menuProduct.name);
   }
 
   getElements(element){
@@ -93,7 +92,6 @@ class CartProduct {
       params: thisCartProduct.params,
     };
 
-    //console.log('name: ', thisCartProduct.name);
     return(loadProduct);
   }
 
