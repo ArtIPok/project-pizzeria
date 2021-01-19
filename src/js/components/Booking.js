@@ -22,16 +22,15 @@ class Booking {
 
     thisBooking.dom = {};
 
-    thisBooking.dom.wrapper = thisBooking.tablesBooking;
+    thisBooking.dom.wrapper = document.querySelector(select.containerOf.booking);
 
-    console.log('wrapper: ', thisBooking.dom.wrapper);
+    thisBooking.dom.wrapper.innerHTML = thisBooking.generatedHTML;
 
-    thisBooking.dom.wrapper.innerHTML = thisBooking.elementHTML;
+    thisBooking.dom.peopleAmount = document.querySelector(select.booking.peopleAmount);
 
-    thisBooking.dom.peopleAmount = element.querySelector(select.booking.peopleAmount);
+    thisBooking.dom.hoursAmount = document.querySelector(select.booking.hoursAmount);
 
-    thisBooking.dom.hoursAmount = element.querySelector(select.booking.hoursAmount);
-
+    console.log('people: ', thisBooking.elementHTML);
   }
 
   initWidgets(){
