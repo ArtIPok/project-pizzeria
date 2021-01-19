@@ -17,20 +17,16 @@ class Booking {
 
     const generatedHTML = templates.bookingWidget();
 
-    thisBooking.elementHTML = utils.createDOMFromHTML(generatedHTML);
-
-
     thisBooking.dom = {};
 
-    thisBooking.dom.wrapper = document.querySelector(select.containerOf.booking);
+    thisBooking.dom.wrapper = tablesBooking;
 
-    thisBooking.dom.wrapper.innerHTML = thisBooking.generatedHTML;
+    thisBooking.dom.wrapper.innerHTML = generatedHTML;
 
     thisBooking.dom.peopleAmount = document.querySelector(select.booking.peopleAmount);
 
     thisBooking.dom.hoursAmount = document.querySelector(select.booking.hoursAmount);
 
-    console.log('people: ', thisBooking.elementHTML);
   }
 
   initWidgets(){
@@ -40,13 +36,13 @@ class Booking {
 
     thisBooking.amountWidgetHours = new AmountWidget(thisBooking.dom.hoursAmount);
 
-    thisBooking.amountWidgetPeople.element.addEventListener('update', function(){
+    /* thisBooking.amountWidgetPeople.elelment.addEventListener('update', function(){
 
     });
 
     thisBooking.amountWidgetHours.element.addEventListener('update', function(){
 
-    });
+    }); */
 
   }
 }
