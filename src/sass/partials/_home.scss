@@ -1,0 +1,39 @@
+.img-gallery {
+  display: inline-block;
+  width: 239px;
+  height: 200px;
+  padding: 4px;
+  border-radius: 4px;
+  justify-content: space-around;
+}
+
+.img-link {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 36px 0;
+  width: 345px;
+  height: 150px;
+}
+
+.open-hours {
+  display: inline-block;
+  margin-left: 20px;
+  background-color: #ff6b6b;
+  border-radius: 4px;
+  text-align: center;
+  height: 100px;
+  width: 20%;
+  text-transform: uppercase;
+}
+
+.open-text {
+  color: #FFF;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+.open-date {
+  color: #FFF;
+  font-weight: bold;
+}

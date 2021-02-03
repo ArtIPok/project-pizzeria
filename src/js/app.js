@@ -2,6 +2,7 @@ import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 export const app = {
   initPages: function(){
@@ -15,6 +16,7 @@ export const app = {
 
     let pageMatchingHash = thisApp.pages[0].id;
 
+    //change activate page to refresh
     for(let page of thisApp.pages) {
       if(page.id == idFromHash){
         pageMatchingHash = page.id;
@@ -122,6 +124,14 @@ export const app = {
     const tablesBooking = document.querySelector(select.containerOf.booking);
 
     thisApp.booking = new Booking(tablesBooking);
+  },
+
+  initHome: function(){
+    const thisApp = this;
+
+    const pageHome = document.querySelector(select.containerOf.home);
+
+    thisApp.home = new Home(pageHome);
   },
 };
 
