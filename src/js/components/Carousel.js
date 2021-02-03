@@ -1,3 +1,4 @@
+
 class Carousel {
   constructor(element){
     const thisCarousel = this;
@@ -10,6 +11,7 @@ class Carousel {
   render(element) {
     const thisCarousel = this;
     // save element ref to this object
+    thisCarousel.dom
   }
 
   initPlugin() {
