@@ -1,5 +1,5 @@
 
-class Carousel {
+/* class Carousel {
   constructor(element){
     const thisCarousel = this;
 
@@ -20,4 +20,4 @@ class Carousel {
 
   }
 }
-export default Carousel;
+export default Carousel; */
