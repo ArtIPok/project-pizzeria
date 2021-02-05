@@ -8,6 +8,8 @@ class Booking {
   constructor(tablesBooking){
     const thisBooking = this;
 
+    thisBooking.selected = {};
+
     thisBooking.render(tablesBooking);
     thisBooking.initWidgets();
     thisBooking.getDate();
@@ -150,6 +152,34 @@ class Booking {
     }
   }
 
+  initTables(){
+    const thisBooking = this;
+
+    const clickedTable = event.target;
+
+    if(clickedTable.classList.contains('table') && !clickedTable.classList.contains('booked') && !clickedTable.classList.contains('selected')) {
+
+      const idTable = clickedTable.getAttribute('data-table');
+      //console.log('idTable: ', idTable);
+
+      thisBooking.selected.idTable;
+
+      for(let table of thisBooking.dom.tables){
+        table.classList.remove('selected');
+      }
+
+      clickedTable.classList.add(classNames.booking.tableSelect);
+
+      //console.log('clickedTable: ', clickedTable);
+    } else if (clickedTable.classList.contains('table') && !clickedTable.classList.contains('booked') && clickedTable.classList.contains('selected')) {
+        clickedTable.classList.remove('selected');
+        //console.log('clickedTable: ', clickedTable);
+
+    } else if(clickedTable.classList.contains('booked')) {
+      alert('Sorry, this table is reserved in this time');
+    }
+  }
+
   render(tablesBooking){
     const thisBooking = this;
 
@@ -171,6 +201,8 @@ class Booking {
 
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
 
+    thisBooking.dom.tableSelect = thisBooking.dom.wrapper.querySelector(select.booking.tablesArea);
+
   }
 
   initWidgets(){
@@ -186,6 +218,10 @@ class Booking {
 
     thisBooking.dom.wrapper.addEventListener('updated', function(){
       thisBooking.updateDOM();
+    });
+
+    thisBooking.dom.wrapper.addEventListener('click', function(){
+      thisBooking.initTables();
     });
   }
 }

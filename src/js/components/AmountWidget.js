@@ -1,5 +1,6 @@
 import {settings, select} from '../settings.js';
 import BaseWidget from './BaseWidget.js';
+import Booking from './Booking.js';
 
 class AmountWidget extends BaseWidget{
   constructor(element){
@@ -49,6 +50,7 @@ class AmountWidget extends BaseWidget{
     thisWidget.dom.linkIncrease.addEventListener('click', function() {
       thisWidget.setValue(++thisWidget.dom.input.value);
     });
+
   }
 }
 
