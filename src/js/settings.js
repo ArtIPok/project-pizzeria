@@ -47,7 +47,6 @@ export const select = {
     toggleTrigger: '.cart__summary',
     totalNumber: `.cart__total-number`,
     totalPrice: '.cart__total-price strong',
-    // .cart__order-total .cart__order-price-sum strong',
     totalPriceSum: '.cart__order-total .cart__order-price-sum strong',
     subTotalPrice: '.cart__order-subtotal .cart__order-price-sum strong',
     deliveryFee: '.cart__order-delivery .cart__order-price-sum strong',
@@ -67,6 +66,11 @@ export const select = {
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
     tablesArea: '.floor-plan',
+    tableBook: '.order-confirmation [type="submit"]',
+    phone: '.order-confirmation [name="phone"]',
+    address: '.order-confirmation [name="address"]',
+    starters: '.booking-options [name="starter"]',
+
   },
   nav: {
     links: '.main-nav a',
