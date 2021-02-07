@@ -67,10 +67,16 @@ export const select = {
     tables: '.floor-plan .table',
     tablesArea: '.floor-plan',
     tableBook: '.order-confirmation [type="submit"]',
+  },
+  booked: {
+    date: '.date-picker[name="date"]',
+    time: '.output',
+    people: '.amount[name="people"]',
+    duration: '.amount[name="hours"]',
     phone: '.order-confirmation [name="phone"]',
     address: '.order-confirmation [name="address"]',
     starters: '.booking-options [name="starter"]',
-
+    idTable: 'data-table',
   },
   nav: {
     links: '.main-nav a',

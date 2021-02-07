@@ -1,6 +1,6 @@
 import {settings, select} from '../settings.js';
 import BaseWidget from './BaseWidget.js';
-import Booking from './Booking.js';
+//import Booking from './Booking.js';
 
 class AmountWidget extends BaseWidget{
   constructor(element){
