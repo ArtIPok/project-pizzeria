@@ -10,8 +10,6 @@ class Booking {
 
     thisBooking.selected = {};
 
-    thisBooking.starters = [];
-
     thisBooking.render(tablesBooking);
     thisBooking.initWidgets();
     thisBooking.getDate();
@@ -127,7 +125,7 @@ class Booking {
 
     for(let table of thisBooking.dom.tables){
       table.classList.remove('selected');
-    };
+    }
 
     let allAvailable = false;
 
@@ -191,7 +189,7 @@ class Booking {
     const url = settings.db.url + '/' + settings.db.booking;
 
     const tableBook = {
-      date: thisBooking.dom.dateBooked,
+      date: thisBooking.dom.dateBooked.value,
       hour: thisBooking.dom.timeBooked.value,
       idTable: thisBooking.dom.idTableSelected,
       duration: thisBooking.dom.durationBooked.value,
@@ -203,10 +201,13 @@ class Booking {
 
     console.log('tableBook: ', tableBook);
 
-  /*  for(let starter of thisBooking.dom.startersBooked) {
-      if(thisBooking.startersBooking.contains('chackbox__checkmark'))
-        tableBook.starter.push(thisBooking.startersBooking[value]);
-    } */
+    console.log('starters: ', thisBooking.dom.startersBooked);
+
+    for(let starter of thisBooking.dom.startersBooked){
+      if(thisBooking.dom.startersBooked.checked){
+        tableBook.starters.push(thisBooking.dom.startersBooked[value]);
+      }
+    }
 
     //console.log('tableBook: ', tableBook);
 
@@ -254,7 +255,7 @@ class Booking {
 
     thisBooking.dom.listBooking = thisBooking.dom.wrapper.querySelector(select.booking.tableBook);
 
-    thisBooking.dom.startersBooked = thisBooking.dom.wrapper.querySelector(select.booked.starters);
+    thisBooking.dom.startersBooked = thisBooking.dom.wrapper.querySelectorAll(select.booked.starters);
 
     thisBooking.dom.phoneBooked = thisBooking.dom.wrapper.querySelector(select.booked.phone);
 
