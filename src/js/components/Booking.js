@@ -202,11 +202,15 @@ class Booking {
     console.log('tableBook: ', tableBook);
     const starters = document.querySelectorAll(select.booked.check);
 
-    console.log('starter: ', starters);
+    const value = document.querySelectorAll(select.booked.value);
+
+    console.log('starter: ', value);
 
     for(let starter of starters){
-      if(starter.checked){
-        const starterValue = starters.getAttribute(value);
+      if(starter.checked != true){
+        const starterValue = starters.value;
+        console.log('value: ', starterValue);
+
         tableBook.starters.push(starterValue);
         console.log('starters: ', starter);
       }

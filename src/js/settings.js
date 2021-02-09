@@ -78,6 +78,7 @@ export const select = {
     starters: '.checkbox [name="starter"]',
     idTable: '.data-table',
     check: '.booking-options .checkbox',
+    value: '#text',
   },
   nav: {
     links: '.main-nav a',
