@@ -190,7 +190,7 @@ class Booking {
 
     const tableBook = {
       date: thisBooking.dom.dateBooked.value,
-      hour: thisBooking.dom.timeBooked.value,
+      hour: utils.numberToHour(thisBooking.dom.timeBooked.value),
       idTable: thisBooking.dom.idTableSelected,
       duration: thisBooking.dom.durationBooked.value,
       pepole: thisBooking.dom.peopleBooked.value,
@@ -200,12 +200,15 @@ class Booking {
     };
 
     console.log('tableBook: ', tableBook);
+    const starters = document.querySelectorAll(select.booked.check);
 
-    console.log('starters: ', thisBooking.dom.startersBooked);
+    console.log('starter: ', starters);
 
-    for(let starter of thisBooking.dom.startersBooked){
-      if(thisBooking.dom.startersBooked.checked){
-        tableBook.starters.push(thisBooking.dom.startersBooked[value]);
+    for(let starter of starters){
+      if(starter.checked){
+        const starterValue = starters.getAttribute(value);
+        tableBook.starters.push(starterValue);
+        console.log('starters: ', starter);
       }
     }
 

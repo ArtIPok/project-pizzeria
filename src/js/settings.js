@@ -77,6 +77,7 @@ export const select = {
     address: '.order-confirmation [name="address"]',
     starters: '.checkbox [name="starter"]',
     idTable: '.data-table',
+    check: '.booking-options .checkbox',
   },
   nav: {
     links: '.main-nav a',
