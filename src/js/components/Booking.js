@@ -200,23 +200,16 @@ class Booking {
     };
 
     console.log('tableBook: ', tableBook);
+
     const starters = document.querySelectorAll(select.booked.check);
 
-    const value = document.querySelectorAll(select.booked.value);
-
-    console.log('starter: ', value);
-
     for(let starter of starters){
-      if(starter.checked != true){
-        const starterValue = starters.value;
-        console.log('value: ', starterValue);
+      if(starter.checked){
+        const starterValue = starter.value;
 
         tableBook.starters.push(starterValue);
-        console.log('starters: ', starter);
       }
     }
-
-    //console.log('tableBook: ', tableBook);
 
     const options = {
       method: 'POST',

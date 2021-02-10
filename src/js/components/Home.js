@@ -1,4 +1,4 @@
-import {select, templates} from '../settings.js';
+import {select} from '../settings.js';
 //import Carousel from '../components/Carousel.js';
 
 
@@ -6,12 +6,12 @@ class Home{
   constructor(pageHome){
     const thisHome = this;
 
-    thisBooking.render(pageHome);
+    thisHome.render(pageHome);
 
-    thisBooking.initWidgets();
+    thisHome.initWidgets();
   }
 
-  render(pageHome){
+  render(){
     const thisHome = this;
 
     //const generatedHTML = templates.bookingWidget();
@@ -27,11 +27,11 @@ class Home{
   }
 
   initWidgets(){
-    const thisHome = this;
+    //const thisHome = this;
 
-    thisHome.carousel = new Carousel(thisHome.dom.carousel);
-
-  }
+    //thisHome.carousel = new Carousel(thisHome.dom.carousel);
 
   }
+
+}
 export default Home;
