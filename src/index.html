@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -68,34 +68,49 @@
     <section id="home">
       <div class="home-page container">
         <div class="row">
-          <div class="col-sm-6">
-            <img src="https://i.postimg.cc/8cXSXBvz/pizza-1.jpg" class="img-link" alt="Photo order">
-            column one
+          <div class="col-6 mt-3"><a href="#/order" target="_self">
+            <div class="card mb-3 justify-content-center align-items-center">
+              <img src="https://i.postimg.cc/8cXSXBvz/pizza-1.jpg" alt="image">
+              <div class="card-body position-absolute">
+                <h5 class="img-title">ORDER ONLINE<p class="img-subtitle">Delicious food delivered to your door</p></h5>
+              </div>
+            </div>
+          </a>
           </div>
-          <div class="col-sm-6">
-            <img src="https://i.postimg.cc/VL3ySNBp/pizza-2.jpg" class="img-link" alt="Photo booking">
-            column two</div>
+          <div class="col-6 mt-3"><a href="#/booking" target="_self">
+            <div class="card mb-3 justify-content-center align-items-center">
+              <img src="https://i.postimg.cc/VL3ySNBp/pizza-2.jpg" alt="image">
+              <div class="card-body position-absolute">
+                <h5 class="img-title">BOOK A TABLE</h5>
+              </div>
+            </div>
+          </a>
+          </div>
           <div class="col-sm-12 open-hours">
             <span class="open-text">opening hours:</span>
               <p><span class="open-date">tue - sun, 12pm - 12am</span></p>
           </div>
           <div class="col-sm-12 carousel">Carousel</div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 justify-content-center align-items-center">
             <img src="https://i.postimg.cc/0NW93nxJ/pizza-9.jpg" class="img-gallery" alt="Photo 1">
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 justify-content-center align-items-center">
             <img src="https://i.postimg.cc/NGxdwzSV/pizza-8.jpg" class="img-gallery" alt="Photo 2">
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 justify-content-center align-items-center">
             <img src="https://i.postimg.cc/yN9TpQ0L/pizza-7.jpg" class="img-gallery" alt="Photo 3">
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 justify-content-center align-items-center">
             <img src="https://i.postimg.cc/5y7CPLy4/pizza-6.jpg" class="img-gallery" alt="Photo 4">
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 justify-content-center align-items-center">
             <img src="https://i.postimg.cc/yN4SrV1Z/pizza-5.jpg" class="img-gallery" alt="Photo 4">
+            <div class="card-body position-absolute">
+              <span class="ikon-item"><i class="fab fa-heart"></i></span>
+              <span class="ikon-item"><i class="fab fa-angle-left"></i></span>
+            </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 justify-content-center align-items-center">
             <img src="https://i.postimg.cc/8kKfgdkD/pizza-4.jpg" class="img-gallery" alt="Photo 6">
           </div>
         </div>
