@@ -191,9 +191,9 @@ class Booking {
     const tableBook = {
       date: thisBooking.dom.dateBooked.value,
       hour: utils.numberToHour(thisBooking.dom.timeBooked.value),
-      idTable: thisBooking.dom.idTableSelected,
-      duration: thisBooking.dom.durationBooked.value,
-      pepole: thisBooking.dom.peopleBooked.value,
+      table: parseInt(thisBooking.dom.idTableSelected),
+      duration: parseInt(thisBooking.dom.durationBooked.value),
+      pepole: parseInt(thisBooking.dom.peopleBooked.value),
       starters: [],
       phone: thisBooking.dom.phoneBooked.value,
       address: thisBooking.dom.addressBooked.value,
@@ -221,6 +221,8 @@ class Booking {
 
     if(thisBooking.dom.idTableSelected != null){
       fetch(url, options);
+      // tableBook.duration = parseInt(tableBook.duration)
+      thisBooking.makeBooked;
     } else {
       alert('You must celect table');
     }

@@ -1,10 +1,7 @@
-.img-gallery {
-  display: inline-block;
-  width: 239px;
+.card *.img-gallery {
+  width: 220px;
   height: 200px;
-  padding: 4px;
-  border-radius: 4px;
-  justify-content: space-around;
+  border-radius: 6px;
 }
 
 .img-link {
@@ -19,7 +16,7 @@
   display: inline-block;
   margin-left: 10px;
   background-color: #ff6b6b;
-  border-radius: 5px;
+  border-radius: 6px;
   text-align: center;
   height: 100px;
   width: 20%;
@@ -43,33 +40,64 @@
   width: 340px;
   height: 120px;
   object-fit: cover;
-  border-radius: 5px;
-}
-
-.img-subtitle {
-  display: none;
-  position: relative;
-  padding-top: 20px;
-  font-size: 12px;
-  &:hover {
-    display: block;
-  }
+  border-radius: 6px;
 }
 
 .img-title {
-  padding: 20px;
   color: #FFF;
   font-size: 24px;
-  text-align: center;
+  padding: 40px;
+
   &:hover {
-    color: #ff6b6b;
-    text-decoration: none;
-    margin-top: -50px;
-    transition-duration: .7s;
+    margin-top: -40px;
+    transition-duration: 1s;
   }
 }
 
 .img-gallery {
   border-radius: 5px;
+}
 
+.ikon-item {
+  color: red;
+}
+
+.fo {
+  padding: 60px;
+  font-size: 0;
+  margin-left: 12px;
+
+  &:hover {
+    color: #ff6b6b;
+    transition-duration: 1.2s;
+    font-size: 24px;
+  }
+}
+
+.carousel {
+  padding: 100px;
+}
+
+.carousel-item {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.carousel-item:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.carousel-item img {
+  display: block;
+  height: 200px;
 }
