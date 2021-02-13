@@ -11,7 +11,7 @@ class Home {
   initPlugin(){
     const thisHome = this;
 
-    thisHome.carousel = new Carousel(thisCarousel.dom);
+    thisHome.carousel = new Carousel(thisHome.dom);
   }
 }
 

@@ -82,7 +82,7 @@ export const select = {
     links: '.main-nav a',
   },
   home: {
-    carousel: '.carousel',
+    carousel: '.main-carousel',
   },
 };
 

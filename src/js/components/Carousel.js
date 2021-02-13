@@ -15,13 +15,15 @@ class Carousel {
     thisCarousel.dom = element;
 
     thisCarousel.dom.carousel = thisCarousel.dom.document.querySelector(select.home.carousel);
+
+    console.log('carousel: ', thisCarousel.dom.carousel);
   }
 
   initPlugin() {
     const thisCarousel = this;
     // use plugin to create carousel on thisCarousel.element
-    thisCarousel.carousel = new Flickity(thisCarousel.dom, {
-      cellAlign: 'left',
+    thisCarousel.carousel = new Flickity(thisCarousel.dom.carousel, {
+      autoPlay: auto,
       contain: true
     });
   }
