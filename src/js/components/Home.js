@@ -1,22 +1,18 @@
+import Carousel from '../components/Carousel.js';
 
 class Home {
   constructor(){
     const thisHome = this;
 
-    thisHome.render();
+    thisHome.initPlugin();
 
   }
 
-  render(){
+  initPlugin(){
     const thisHome = this;
 
-    thisHome.carousel = document.querySelector('.carousel');
-
-    const flkty = new Flickity(thisHome.carousel, {
-      cellAlign: 'left',
-      contain: true
-    });
-
+    thisHome.carousel = new Carousel(thisCarousel.dom);
   }
 }
+
 export default Home;

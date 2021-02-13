@@ -75,7 +75,6 @@ export const select = {
     duration: '.amount[name="hours"]',
     phone: '.order-confirmation [name="phone"]',
     address: '.order-confirmation [name="address"]',
-    //starters: '.checkbox__checkmark',
     idTable: '.data-table',
     check: '.checkbox [name="starter"]',
   },
