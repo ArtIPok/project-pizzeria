@@ -76,28 +76,15 @@
 
 .main-carousel {
   padding: 100px;
-}
-
-.carousel-item {
-  width: 66%;
-  height: 200px;
-  margin-right: 10px;
-  background: #8C8;
-  border-radius: 5px;
-  counter-increment: gallery-cell;
-}
-
-/* cell number */
-.carousel-item:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
-}
-
-.carousel-item img {
-  display: block;
-  height: 200px;
+  width: 100%;
+  h2 {
+    color: #ff6b6b;
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 12px;
+  }
+  img {
+    width: 100%;
+  }
 }

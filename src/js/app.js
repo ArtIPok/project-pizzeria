@@ -103,6 +103,8 @@ export const app = {
 
     thisApp.initBooking();
 
+    thisApp.initHome();
+
   },
 
   initCart: function(){

@@ -1,4 +1,5 @@
 import Carousel from '../components/Carousel.js';
+import {select} from '../settings.js';
 
 class Home {
   constructor(){
@@ -11,7 +12,7 @@ class Home {
   initPlugin(){
     const thisHome = this;
 
-    thisHome.carousel = new Carousel(thisHome.dom);
+    thisHome.carousel = new Carousel(select.home.carousel);
   }
 }
 

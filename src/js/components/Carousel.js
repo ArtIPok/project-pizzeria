@@ -1,20 +1,21 @@
-import {select} from '../settings.js';
+/* global Flickity */
+//import {select} from '../settings.js';
 
 class Carousel {
-  constructor(element){
+  constructor(selector){
     const thisCarousel = this;
 
-    thisCarousel.render(element);
+    thisCarousel.getElements(selector);
 
     thisCarousel.initPlugin();
   }
 
-  render(element) {
+  getElements(selector) {
     const thisCarousel = this;
 
-    thisCarousel.dom = element;
+    thisCarousel.dom = {};
 
-    thisCarousel.dom.carousel = thisCarousel.dom.document.querySelector(select.home.carousel);
+    thisCarousel.dom.carousel = document.querySelector(selector);
 
     console.log('carousel: ', thisCarousel.dom.carousel);
   }
@@ -22,8 +23,9 @@ class Carousel {
   initPlugin() {
     const thisCarousel = this;
     // use plugin to create carousel on thisCarousel.element
-    thisCarousel.carousel = new Carousel( thisCarousel.dom.carousel, {
-      auto: true
+    thisCarousel.carousel = new Flickity( thisCarousel.dom.carousel, {
+      autoPlay: true,
+      wrapAround: true
     });
   }
 }
