@@ -222,7 +222,7 @@ class Booking {
     if(thisBooking.dom.idTableSelected != null){
       fetch(url, options);
       // tableBook.duration = parseInt(tableBook.duration)
-      thisBooking.makeBooked;
+      thisBooking.makeBooked(tableBook);
     } else {
       alert('You must celect table');
     }

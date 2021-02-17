@@ -79,7 +79,7 @@ export const select = {
     check: '.checkbox [name="starter"]',
   },
   nav: {
-    links: '.main-nav a',
+    links: '.main-nav a, .link a',
   },
   home: {
     carousel: '.main-carousel',

@@ -22,9 +22,8 @@ class Carousel {
   initPlugin() {
     const thisCarousel = this;
     // use plugin to create carousel on thisCarousel.element
-    thisCarousel.carousel = new Flickity(thisCarousel.dom.carousel, {
-      autoPlay: auto,
-      contain: true
+    thisCarousel.carousel = new Carousel( thisCarousel.dom.carousel, {
+      auto: true
     });
   }
 }

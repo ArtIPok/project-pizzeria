@@ -193,6 +193,8 @@ class Product{
       },
     });
 
+    console.log('product: ', thisProduct);
+
     thisProduct.element.dispatchEvent(event);
   }
 
