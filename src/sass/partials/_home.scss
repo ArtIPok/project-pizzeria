@@ -75,16 +75,30 @@
 }
 
 .main-carousel {
-  padding: 100px;
+  padding: 80px 20px 20px 80px;
   width: 100%;
+  margin-bottom: 40px;
+}
+
+.carousel-cell {
+  width: 100%;
+
+  img {
+    width: 40%;
+  }
+
   h2 {
     color: #ff6b6b;
     font-size: 16px;
+    text-align: left;
+    margin-left: 250px ;
+    transform: translateY(-140px);
   }
+
   h3 {
     font-size: 12px;
-  }
-  img {
-    width: 100%;
+    text-align: left;
+    margin-left: 250px;
+    transform: translateY(-120px);
   }
 }
